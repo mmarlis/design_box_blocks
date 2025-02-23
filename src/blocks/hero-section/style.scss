@@ -1,0 +1,68 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@import "/src/scss/variables";
+
+
+.wp-block-mm-hero-section {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100vh;
+		background-color: #2b3a4a;
+		color: white;
+		padding: 0 5%;
+	}
+
+	.hero-content {
+		max-width: 600px;
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+		font-weight: lighter;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 20px;
+	}
+
+	.btn {
+		background-color: #f4a261;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		cursor: pointer;
+		font-size: 1rem;
+		border-radius: 5px;
+	}
+
+	.btn:hover {
+		background-color: #e07b3c;
+	}
+
+	/* Adjustments for the SVG blob */
+	.hero-photo svg {
+		height: 100%;
+		width: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}

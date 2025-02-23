@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mm/design-box-blocks",
+	"version": "0.1.0",
+	"title": "Design Box Blocks",
+	"category": "design",
+	"icon": "art",
+	"description": "Make your website extra original with these awesome blocks",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "design-box-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
