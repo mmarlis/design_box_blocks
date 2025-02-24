@@ -29,8 +29,8 @@ import {useBlockProps} from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-import {RichText, PlainText, useBlocks, URLInput, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
-import {Button} from '@wordpress/components';
+// import {RichText, PlainText, useBlocks, URLInput, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+// import {Button} from '@wordpress/components';
 import './editor.scss';
 import MemberInfo from '../../components/MemberInfo';
 import ProfileButton from "../../components/ProfileButton";

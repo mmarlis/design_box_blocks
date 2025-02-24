@@ -26,14 +26,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/team-member/editor.scss");
-/* harmony import */ var _components_MemberInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/MemberInfo */ "./src/components/MemberInfo.js");
-/* harmony import */ var _components_ProfileButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/ProfileButton */ "./src/components/ProfileButton.js");
-/* harmony import */ var _components_ProfilePhoto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/ProfilePhoto */ "./src/components/ProfilePhoto.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/team-member/editor.scss");
+/* harmony import */ var _components_MemberInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/MemberInfo */ "./src/components/MemberInfo.js");
+/* harmony import */ var _components_ProfileButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/ProfileButton */ "./src/components/ProfileButton.js");
+/* harmony import */ var _components_ProfilePhoto__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/ProfilePhoto */ "./src/components/ProfilePhoto.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * Retrieves the translation of text.
  *
@@ -64,8 +62,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-
-
+// import {RichText, PlainText, useBlocks, URLInput, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+// import {Button} from '@wordpress/components';
 
 
 
@@ -75,18 +73,18 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "member-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ProfilePhoto__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ProfilePhoto__WEBPACK_IMPORTED_MODULE_5__["default"], {
         memberPhoto: attributes.memberPhoto,
         setAttributes: setAttributes
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_MemberInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_MemberInfo__WEBPACK_IMPORTED_MODULE_3__["default"], {
         memberName: attributes.memberName,
         role: attributes.role,
         setAttributes: setAttributes
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ProfileButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ProfileButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
         profileUrl: attributes.profileUrl,
         setAttributes: setAttributes
       })]
@@ -217,8 +215,10 @@ function save({
           className: "role",
           children: attributes.role
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_ProfileButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        profileUrl: attributes.profileUrl
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: attributes.profileUrl || '#',
+        className: "profile-button",
+        children: "View Profile"
       })]
     })
   });
@@ -258,7 +258,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MemberInfo({
-  member,
+  memberName,
   role,
   setAttributes
 }) {
@@ -300,20 +300,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function ProfileButton() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+function ProfileButton({
+  profileUrl,
+  setAttributes
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "profile-button-wrapper",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.URLInput, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.URLInput, {
       value: profileUrl,
       onChange: url => setAttributes({
         profileUrl: url
       }),
       placeholder: "Enter profile link"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-      href: profileUrl || '#',
-      className: "profile-button",
-      children: "View Profile"
-    })]
+    })
   });
 }
 

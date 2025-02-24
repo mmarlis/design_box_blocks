@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { PlainText } from '@wordpress/block-editor';
 
 
-export default function MemberInfo({member, role, setAttributes}) {
+export default function MemberInfo({memberName, role, setAttributes}) {
 	return (
 	<div className="member-info">
 		<PlainText

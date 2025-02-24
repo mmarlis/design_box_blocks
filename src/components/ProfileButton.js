@@ -1,7 +1,7 @@
 import { URLInput } from '@wordpress/block-editor';
 
 
-export default function ProfileButton() {
+export default function ProfileButton({ profileUrl, setAttributes}) {
 	return (
 		<div className="profile-button-wrapper">
 			<URLInput
@@ -10,7 +10,6 @@ export default function ProfileButton() {
 				placeholder="Enter profile link"
 			/>
 
-			<a href={profileUrl || '#'} className="profile-button">View Profile</a>
 		</div>
 	);
 }

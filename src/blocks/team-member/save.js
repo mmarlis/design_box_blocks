@@ -28,7 +28,7 @@ export default function save({attributes}) {
 					<p className="role">{attributes.role}</p>
 				</div>
 				{/*<a href={attributes.profileUrl || '#'} className="profile-button">View Profile</a>*/}
-				<ProfileButton profileUrl={attributes.profileUrl} />
+				<a href={attributes.profileUrl || '#'} className="profile-button">View Profile</a>
 			</div>
 		</div>
 	);
