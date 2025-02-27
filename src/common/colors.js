@@ -3,4 +3,4 @@ const colors = [
 	{name: 'yellow', color: '#CBA454'},
 	{name: 'blue', color: '#313C4C'},
 ];
-
+export default colors;

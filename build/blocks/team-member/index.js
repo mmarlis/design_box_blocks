@@ -1,13 +1,55 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/blocks/team-member/BlockSettings.js":
 /*!*************************************************!*\
   !*** ./src/blocks/team-member/BlockSettings.js ***!
   \*************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/mari/Documents/integratedWebDev/design-box-blocks/src/blocks/team-member/BlockSettings.js: Unexpected token (24:0)\n\n\u001b[0m \u001b[90m 22 |\u001b[39m \t\t)\n \u001b[90m 23 |\u001b[39m \t}\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m }\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m\n    at constructor (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:360:19)\n    at JSXParserMixin.raise (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:3327:19)\n    at JSXParserMixin.unexpected (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:3347:16)\n    at JSXParserMixin.parseExprAtom (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:11126:16)\n    at JSXParserMixin.parseExprAtom (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:6937:20)\n    at JSXParserMixin.parseExprSubscripts (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10758:23)\n    at JSXParserMixin.parseUpdate (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10743:21)\n    at JSXParserMixin.parseMaybeUnary (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10723:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10576:61)\n    at JSXParserMixin.parseExprOps (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10581:23)\n    at JSXParserMixin.parseMaybeConditional (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10558:23)\n    at JSXParserMixin.parseMaybeAssign (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10521:21)\n    at JSXParserMixin.parseExpressionBase (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10475:23)\n    at /Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10471:39\n    at JSXParserMixin.allowInAnd (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12095:16)\n    at JSXParserMixin.parseExpression (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:10471:17)\n    at JSXParserMixin.parseStatementContent (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12539:23)\n    at JSXParserMixin.parseStatementLike (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12406:17)\n    at JSXParserMixin.parseModuleItem (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12383:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12960:36)\n    at JSXParserMixin.parseBlockBody (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12953:10)\n    at JSXParserMixin.parseProgram (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12280:10)\n    at JSXParserMixin.parseTopLevel (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:12270:25)\n    at JSXParserMixin.parse (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:14120:10)\n    at parse (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/parser/lib/index.js:14154:38)\n    at parser (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/@babel/core/lib/transform.js:22:33)\n    at transform.next (<anonymous>)\n    at step (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/gensync/index.js:261:32)\n    at /Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/mari/Documents/integratedWebDev/design-box-blocks/node_modules/gensync/index.js:223:11)");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BlockSettings)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/colors */ "./src/common/colors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+function BlockSettings({
+  attributes,
+  setAttributes
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Basic",
+      initialOpen: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "Quote Background Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+          colors: _common_colors__WEBPACK_IMPORTED_MODULE_3__["default"],
+          value: attributes.backgroundColor,
+          onChange: backgroundColor => setAttributes({
+            backgroundColor
+          })
+        })
+      })]
+    })
+  });
+}
 
 /***/ }),
 
@@ -17,8 +59,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   \*******************************************/
 /***/ ((module) => {
 
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","default":"John Doe","selector":".member"},"role":{"type":"string","source":"html","default":"Senior Wealth Advisor","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","default":"John Doe","selector":".member"},"role":{"type":"string","source":"html","default":"Senior Wealth Advisor","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"}}}');
 
 /***/ }),
 
@@ -28,7 +69,6 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -113,7 +153,6 @@ function Edit({
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -126,7 +165,6 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -181,7 +219,6 @@ __webpack_require__.r(__webpack_exports__);
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ save)
@@ -248,10 +285,33 @@ function save({
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/common/colors.js":
+/*!******************************!*\
+  !*** ./src/common/colors.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const colors = [{
+  name: 'grey',
+  color: '#EDEDED'
+}, {
+  name: 'yellow',
+  color: '#CBA454'
+}, {
+  name: 'blue',
+  color: '#313C4C'
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (colors);
 
 /***/ }),
 
@@ -261,7 +321,6 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ MemberInfo)
@@ -308,7 +367,6 @@ function MemberInfo({
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ProfileButton)
@@ -343,7 +401,6 @@ function ProfileButton({
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ProfilePhoto)
@@ -391,7 +448,6 @@ function ProfilePhoto({
   \*************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -402,7 +458,6 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ }),
@@ -413,7 +468,6 @@ module.exports = window["wp"]["blocks"];
   \************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["components"];
 
 /***/ }),
@@ -424,7 +478,6 @@ module.exports = window["wp"]["components"];
   \******************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["i18n"];
 
 /***/ }),
@@ -435,7 +488,6 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["React"];
 
 /***/ }),
@@ -446,7 +498,6 @@ module.exports = window["React"];
   \**********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["ReactJSXRuntime"];
 
 /***/ })

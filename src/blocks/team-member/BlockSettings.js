@@ -1,24 +1,25 @@
 import React from "react";
 import {InspectorControls} from "@wordpress/block-editor";
-import {PanelBody, PanelRow} from "@wordpress/components";
+import {ColorPalette, PanelBody, PanelRow} from "@wordpress/components";
+import colors from "../../common/colors";
 
-export default function BlockSettings() {
-
-		const colors = [
-			{name: 'grey', color: '#EDEDED'},
-			{name: 'yellow', color: '#CBA454'},
-			{name: 'blue', color: '#313C4C'},
-		];
+export default function BlockSettings({attributes, setAttributes}) {
 
 
 		return (
 			<InspectorControls>
 				<PanelBody title="Basic" initialOpen={true}>
 					<PanelRow>
-						Starter Demo!
+						<h4>Quote Background Color</h4>
+					</PanelRow>
+					<PanelRow>
+						<ColorPalette
+							colors={colors}
+							value={attributes.backgroundColor}
+							onChange={backgroundColor => setAttributes({ backgroundColor })}
+						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 		)
-	}
 }

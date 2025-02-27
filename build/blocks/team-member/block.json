@@ -42,6 +42,12 @@
     "profileUrl": {
       "type": "string",
       "default": "#"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
     }
   }
 }
