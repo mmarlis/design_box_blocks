@@ -35,10 +35,12 @@ import './editor.scss';
 import MemberInfo from '../../components/MemberInfo';
 import ProfileButton from "../../components/ProfileButton";
 import ProfilePhoto from "../../components/ProfilePhoto";
+import BlockSettings from "./BlockSettings";
 
 export default function Edit({attributes, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
+			<BlockSettings />
 
 			<div className="member-card">
 
