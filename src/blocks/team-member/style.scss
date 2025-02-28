@@ -4,9 +4,9 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-
+@import "/src/scss/variables";
 .wp-block-mm-team-member {
-	//background-color: #313C4C;
+	background-color: var(--background-color, #fff);
 	color: #313C4C;
 	padding: 2px;
 	display: flex;
@@ -17,8 +17,8 @@
 	width: 300px;
 	border-radius: 10px;
 
-.member-card {
-		background: #fff;
+	.member-card {
+		//background-color: var(--background-color, #fff);
 		border-radius: 10px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		text-align: center;
@@ -27,18 +27,21 @@
 		transition: transform 0.3s ease;
 	}
 
+
 	.team-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
 	}
+
 	.member-card:hover .member-photo {
 		filter: brightness(0.8);
 	}
-	.member-card:hover .profile-button {
-		background-color: #A27B10;
-		color: #fff;
-	}
+
+	//.member-card:hover .profile-button {
+	//	background-color: #A27B10;
+	//	color: #fff;
+	//}
 
 
 	.member-photo {
@@ -46,15 +49,18 @@
 		height: auto;
 		border-radius: 10px;
 	}
+
 	.member-photo img {
 		border-radius: 10px;
 		max-width: 100%
 	}
 
 	.member {
+		//background-color: var(--background-color, #fff);
+		//color: var(--background-color, #fff);
 		font-size: 20px;
 		font-weight: bold;
-		color: #313C4C;
+		//color: #313C4C;
 		margin: 15px 0 5px;
 		text-align: center;
 		display: block;
@@ -63,7 +69,7 @@
 
 	.role {
 		font-size: 16px;
-		color: #777;
+		//color: #777;
 		margin-bottom: 15px;
 		text-align: center;
 		display: block;
@@ -72,8 +78,8 @@
 	.profile-button {
 		display: inline-block;
 		text-decoration: none;
-		background: #CBA454;
-		color: #fff;
+		//background: var(--background-color, #CBA454);
+		//color: #fff;
 		font-size: 16px;
 		padding: 10px 15px;
 		font-weight: bold;
@@ -81,6 +87,6 @@
 	}
 
 	.profile-button:hover {
-		background: #A27B10;
+		//background: #A27B10;
 	}
 }

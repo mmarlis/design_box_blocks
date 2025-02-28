@@ -36,7 +36,7 @@ function BlockSettings({
       initialOpen: true,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-          children: "Quote Background Color"
+          children: "Card Background Color"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
@@ -44,6 +44,42 @@ function BlockSettings({
           value: attributes.backgroundColor,
           onChange: backgroundColor => setAttributes({
             backgroundColor
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "Text Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+          colors: _common_colors__WEBPACK_IMPORTED_MODULE_3__["default"],
+          value: attributes.textColor,
+          onChange: textColor => setAttributes({
+            textColor
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "button Background Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+          colors: _common_colors__WEBPACK_IMPORTED_MODULE_3__["default"],
+          value: attributes.buttonBackgroundColor,
+          onChange: buttonBackgroundColor => setAttributes({
+            buttonBackgroundColor
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: "button Text Color"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+          colors: _common_colors__WEBPACK_IMPORTED_MODULE_3__["default"],
+          value: attributes.buttonTextColor,
+          onChange: buttonTextColor => setAttributes({
+            buttonTextColor
           })
         })
       })]
@@ -59,7 +95,7 @@ function BlockSettings({
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","default":"John Doe","selector":".member"},"role":{"type":"string","source":"html","default":"Senior Wealth Advisor","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","default":"John Doe","selector":".member"},"role":{"type":"string","source":"html","default":"Senior Wealth Advisor","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"},"buttonBackgroundColor":{"type":"string"},"buttonTextColor":{"type":"string"}}}');
 
 /***/ }),
 
@@ -126,20 +162,45 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const divStyles = {
+    color: attributes.textColor
+  };
+  const cardStyles = {
+    backgroundColor: attributes.backgroundColor
+  };
+  const memberInfoStyles = {
+    color: attributes.textColor,
+    backgroundColor: attributes.backgroundColor
+  };
+  const buttonStyles = {
+    color: attributes.buttonTextColor,
+    backgroundColor: attributes.buttonBackgroundColor
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_BlockSettings__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    style: cardStyles,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_BlockSettings__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      attributes: attributes,
+      setAttributes: setAttributes
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "member-card",
+      style: cardStyles,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ProfilePhoto__WEBPACK_IMPORTED_MODULE_5__["default"], {
         memberPhoto: attributes.memberPhoto,
         setAttributes: setAttributes
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_MemberInfo__WEBPACK_IMPORTED_MODULE_3__["default"], {
         memberName: attributes.memberName,
         role: attributes.role,
-        setAttributes: setAttributes
+        setAttributes: setAttributes,
+        memberInfoStyles: memberInfoStyles
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ProfileButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
         profileUrl: attributes.profileUrl,
-        setAttributes: setAttributes
+        setAttributes: setAttributes,
+        buttonStyles: buttonStyles
       })]
     })]
   });
@@ -249,8 +310,21 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const divStyles = {
+    color: attributes.textColor,
+    backgroundColor: attributes.backgroundColor
+  };
+  const buttonStyles = {
+    color: attributes.buttonTextColor,
+    backgroundColor: attributes.buttonBackgroundColor
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    style: divStyles,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "member-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -271,6 +345,7 @@ function save({
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         href: attributes.profileUrl || '#',
         className: "profile-button",
+        style: buttonStyles,
         children: "View Profile"
       })]
     })
@@ -379,10 +454,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function ProfileButton({
   profileUrl,
-  setAttributes
+  setAttributes,
+  buttonStyles
 }) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "profile-button-wrapper",
+    style: buttonStyles,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.URLInput, {
       value: profileUrl,
       onChange: url => setAttributes({

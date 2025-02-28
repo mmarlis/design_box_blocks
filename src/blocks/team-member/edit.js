@@ -38,11 +38,35 @@ import ProfilePhoto from "../../components/ProfilePhoto";
 import BlockSettings from "./BlockSettings";
 
 export default function Edit({attributes, setAttributes}) {
-	return (
-		<div {...useBlockProps()}>
-			<BlockSettings />
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		color: attributes.textColor,
+	}
+	const cardStyles = {
+		backgroundColor: attributes.backgroundColor,
+	}
+	const memberInfoStyles = {
+		color: attributes.textColor,
+		backgroundColor: attributes.backgroundColor,
+	}
 
-			<div className="member-card">
+	const buttonStyles = {
+		color: attributes.buttonTextColor,
+		backgroundColor: attributes.buttonBackgroundColor,
+	}
+
+
+	return (
+		<div {...useBlockProps()} style={cardStyles}>
+
+			<BlockSettings
+				attributes={attributes} setAttributes={setAttributes}
+			/>
+
+			<div className="member-card" style={cardStyles}>
 
 				<ProfilePhoto
 					memberPhoto={attributes.memberPhoto}
@@ -53,12 +77,14 @@ export default function Edit({attributes, setAttributes}) {
 					memberName={attributes.memberName}
 					role={attributes.role}
 					setAttributes={setAttributes}
+					memberInfoStyles={memberInfoStyles}
 				/>
 
 
 				<ProfileButton
 					profileUrl={attributes.profileUrl}
 					setAttributes={setAttributes}
+					buttonStyles={buttonStyles}
 				/>
 
 			</div>

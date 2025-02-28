@@ -8,6 +8,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-mm-team-member {
+  background-color: var(--background-color, #fff);
   color: #313C4C;
   padding: 2px;
   display: flex;
@@ -18,7 +19,6 @@
   border-radius: 10px;
 }
 .wp-block-mm-team-member .member-card {
-  background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -33,10 +33,6 @@
 .wp-block-mm-team-member .member-card:hover .member-photo {
   filter: brightness(0.8);
 }
-.wp-block-mm-team-member .member-card:hover .profile-button {
-  background-color: #A27B10;
-  color: #fff;
-}
 .wp-block-mm-team-member .member-photo {
   height: auto;
   border-radius: 10px;
@@ -48,7 +44,6 @@
 .wp-block-mm-team-member .member {
   font-size: 20px;
   font-weight: bold;
-  color: #313C4C;
   margin: 15px 0 5px;
   text-align: center;
   display: block;
@@ -56,7 +51,6 @@
 }
 .wp-block-mm-team-member .role {
   font-size: 16px;
-  color: #777;
   margin-bottom: 15px;
   text-align: center;
   display: block;
@@ -64,13 +58,8 @@
 .wp-block-mm-team-member .profile-button {
   display: inline-block;
   text-decoration: none;
-  background: #CBA454;
-  color: #fff;
   font-size: 16px;
   padding: 10px 15px;
   font-weight: bold;
   transition: background 0.3s ease;
-}
-.wp-block-mm-team-member .profile-button:hover {
-  background: #A27B10;
 }

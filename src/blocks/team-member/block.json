@@ -48,6 +48,12 @@
 		},
 		"textColor": {
 			"type": "string"
+		},
+		"buttonBackgroundColor": {
+			"type": "string"
+		},
+		"buttonTextColor": {
+			"type": "string"
 		}
 	}
 }
