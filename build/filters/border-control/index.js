@@ -148,7 +148,7 @@ function blockWrapper(WrappedBlock) {
                 bcBorderRadius
               }),
               min: 0,
-              max: 50,
+              max: 10,
               step: 1
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {

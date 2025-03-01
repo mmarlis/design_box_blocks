@@ -51,7 +51,6 @@ function blockWrapper(WrappedBlock) {
 								/>
 							</PanelRow>
 
-
 							<RangeControl
 								label="Width"
 								value={attributes.bcBorderWidth}
@@ -62,7 +61,6 @@ function blockWrapper(WrappedBlock) {
 								max={5}
 								step={0.5}
 							/>
-
 
 							<RangeControl
 								label="Padding"
@@ -75,7 +73,6 @@ function blockWrapper(WrappedBlock) {
 								step={1}
 							/>
 
-
 							<RangeControl
 								label="Margin"
 								value={attributes.bcBorderMargin}
@@ -87,7 +84,6 @@ function blockWrapper(WrappedBlock) {
 								step={1}
 							/>
 
-
 							<RangeControl
 								label="Radius"
 								value={attributes.bcBorderRadius}
@@ -95,10 +91,9 @@ function blockWrapper(WrappedBlock) {
 									setAttributes({bcBorderRadius})
 								}
 								min={0}
-								max={50}
+								max={10}
 								step={1}
 							/>
-
 
 							<PanelRow>
 								<label>Border Color</label>
@@ -111,7 +106,6 @@ function blockWrapper(WrappedBlock) {
 									onChange={bcBorderColor => setAttributes({bcBorderColor})}
 								/>
 							</PanelRow>
-
 
 						</PanelBody>
 					</InspectorControls>
