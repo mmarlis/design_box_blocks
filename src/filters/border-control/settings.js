@@ -10,6 +10,36 @@ function addBorderAttributes(settings, name) {
     default: "",
   };
 
+  // for padding
+	settings.attributes.bcBorderPadding = {
+		type: "number",
+		default: 10,
+	}
+
+	//for margin
+	settings.attributes.bcBorderMargin = {
+		type: "number",
+		default: 10,
+	}
+
+	//for border radius
+	settings.attributes.bcBorderRadius = {
+		type: "number",
+		default: 0,
+	}
+
+	//for color
+	settings.attributes.bcBorderColor = {
+		type: "string",
+		default: "#000000",
+	}
+
+	//for width
+	settings.attributes.bcBorderWidth = {
+		type: "number",
+		default: 1,
+	}
+
   // (modify any additional settings)
 
   return settings;

@@ -2,6 +2,30 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/common/colors.js":
+/*!******************************!*\
+  !*** ./src/common/colors.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const colors = [{
+  name: 'grey',
+  color: '#EDEDED'
+}, {
+  name: 'yellow',
+  color: '#CBA454'
+}, {
+  name: 'blue',
+  color: '#313C4C'
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (colors);
+
+/***/ }),
+
 /***/ "./src/filters/border-control/edit.js":
 /*!********************************************!*\
   !*** ./src/filters/border-control/edit.js ***!
@@ -21,8 +45,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _common_colors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../common/colors */ "./src/common/colors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -42,45 +68,106 @@ function blockWrapper(WrappedBlock) {
       } = this.props;
       let divStyles = {
         borderStyle: attributes.bcBorderStyle || "none",
-        borderWidth: "2px",
-        borderColor: "black",
-        padding: "10px"
+        borderWidth: (attributes.bcBorderWidth || 1) + 'px',
+        borderColor: setAttributes.bcBorderColor || "black",
+        padding: (attributes.bcBorderPadding || 10) + 'px',
+        margin: (attributes.bcBorderMargin || 10) + 'px',
+        radius: (attributes.bcBorderRadius || 0) + '%'
       };
 
       // don't apply styles if there is no border
       if (divStyles.borderStyle === "none") {
         divStyles = {};
       }
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
             title: "Border Controls",
-            initialOpen: false,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-              label: "Style",
-              value: attributes.bcBorderStyle,
-              onChange: bcBorderStyle => setAttributes({
-                bcBorderStyle
+            initialOpen: true,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+                label: "Style",
+                value: attributes.bcBorderStyle,
+                onChange: bcBorderStyle => setAttributes({
+                  bcBorderStyle
+                }),
+                options: [{
+                  label: "None",
+                  value: "none"
+                }, {
+                  label: "Solid",
+                  value: "solid"
+                }, {
+                  label: "Dashed",
+                  value: "dashed"
+                }, {
+                  label: "Dotted",
+                  value: "dotted"
+                }, {
+                  label: "Double",
+                  value: "double"
+                }, {
+                  label: "Groove",
+                  value: "groove"
+                }, {
+                  label: "Ridge",
+                  value: "ridge"
+                }]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Width",
+              value: attributes.bcBorderWidth,
+              onChange: bcBorderWidth => setAttributes({
+                bcBorderWidth
               }),
-              options: [{
-                label: "None",
-                value: "none"
-              }, {
-                label: "Solid",
-                value: "solid"
-              }, {
-                label: "Dashed",
-                value: "dashed"
-              }, {
-                label: "Dotted",
-                value: "dotted"
-              }]
-            })
+              min: 0.5,
+              max: 5,
+              step: 0.5
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Padding",
+              value: attributes.bcBorderPadding,
+              onChange: bcBorderPadding => setAttributes({
+                bcBorderPadding
+              }),
+              min: 0,
+              max: 100,
+              step: 1
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Margin",
+              value: attributes.bcBorderMargin,
+              onChange: bcBorderMargin => setAttributes({
+                bcBorderMargin
+              }),
+              min: 0,
+              max: 100,
+              step: 1
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Radius",
+              value: attributes.bcBorderRadius,
+              onChange: bcBorderRadius => setAttributes({
+                bcBorderRadius
+              }),
+              min: 0,
+              max: 50,
+              step: 1
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                children: "Border Color"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPalette, {
+                colors: _common_colors__WEBPACK_IMPORTED_MODULE_6__["default"],
+                value: attributes.bcBorderColor,
+                onChange: bcBorderColor => setAttributes({
+                  bcBorderColor
+                })
+              })
+            })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "wp-block",
           style: divStyles,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(WrappedBlock, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(WrappedBlock, {
             ...this.props
           })
         })]
@@ -117,6 +204,36 @@ function addBorderAttributes(settings, name) {
   settings.attributes.bcBorderStyle = {
     type: "string",
     default: ""
+  };
+
+  // for padding
+  settings.attributes.bcBorderPadding = {
+    type: "number",
+    default: 10
+  };
+
+  //for margin
+  settings.attributes.bcBorderMargin = {
+    type: "number",
+    default: 10
+  };
+
+  //for border radius
+  settings.attributes.bcBorderRadius = {
+    type: "number",
+    default: 0
+  };
+
+  //for color
+  settings.attributes.bcBorderColor = {
+    type: "string",
+    default: "#000000"
+  };
+
+  //for width
+  settings.attributes.bcBorderWidth = {
+    type: "number",
+    default: 1
   };
 
   // (modify any additional settings)

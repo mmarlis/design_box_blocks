@@ -5,12 +5,12 @@ function mm_add_borders( $block_content = '', $block = [] ) {
 	// bc is for border-control
 
 	$defaults = [
-		'bcBorderStyle' => 'none',
+		'bcBorderStyle'   => 'none',
 		'bcBorderPadding' => '0px',
-		'bcBorderMargin' => '0px',
-		'bcBorderColor' => '#000000',
-		'bcBorderRadius' => '0px',
-		'bcBorderWidth' => '0px',
+		'bcBorderMargin'  => '0px',
+		'bcBorderColor'   => '#000000',
+		'bcBorderRadius'  => '0px',
+		'bcBorderWidth'   => '0px',
 	];
 
 	// merge our defaults with whatever the attributes are
@@ -19,18 +19,17 @@ function mm_add_borders( $block_content = '', $block = [] ) {
 	if ( $attrs['bcBorderStyle'] !== 'none' ) {
 		$divStyles = "
 			border-style: {$attrs['bcBorderStyle']};
-			padding: {$attrs['bcBorderPadding']};
-			margin: {$attrs['bcBorderMargin']};
+			padding: {$attrs['bcBorderPadding']}px;
+			margin: {$attrs['bcBorderMargin']}px;
 			border-color: {$attrs['bcBorderColor']};
-			border-radius: {$attrs['bcBorderRadius']};
-			border-width: {$attrs['bcBorderWidth']};
+			border-radius: {$attrs['bcBorderRadius']}px;
+			border-width: {$attrs['bcBorderWidth']}%;
 		";
 
 		// Wrap the block content with a div with these styles
 		$block_content = '<div style="' . $divStyles . '">' . $block_content . '</div>';
 
 	}
-
 
 
 	// return unmodified block content
