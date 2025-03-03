@@ -18,10 +18,10 @@ function blockWrapper(WrappedBlock) {
 			let divStyles = {
 				borderStyle: attributes.bcBorderStyle || "none",
 				borderWidth: (attributes.bcBorderWidth || 1) + 'px',
-				borderColor: setAttributes.bcBorderColor || "black",
+				borderColor: attributes.bcBorderColor || "black",
 				padding: (attributes.bcBorderPadding || 10) + 'px',
 				margin: (attributes.bcBorderMargin || 10) + 'px',
-				radius: (attributes.bcBorderRadius || 0) + '%',
+				borderRadius: (attributes.bcBorderRadius || 0) + 'px',
 			};
 
 			// don't apply styles if there is no border

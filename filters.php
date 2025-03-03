@@ -23,7 +23,7 @@ function mm_add_borders( $block_content = '', $block = [] ) {
 			margin: {$attrs['bcBorderMargin']}px;
 			border-color: {$attrs['bcBorderColor']};
 			border-radius: {$attrs['bcBorderRadius']}px;
-			border-width: {$attrs['bcBorderWidth']}%;
+			border-width: {$attrs['bcBorderWidth']}px;
 		";
 
 		// Wrap the block content with a div with these styles

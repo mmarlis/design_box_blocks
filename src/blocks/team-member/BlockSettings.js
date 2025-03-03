@@ -20,7 +20,7 @@ export default function BlockSettings({attributes, setAttributes}) {
 					/>
 				</PanelRow>
 				<PanelRow>
-					<h4>Text Color</h4>
+					<h4>Card Text Color</h4>
 				</PanelRow>
 				<PanelRow>
 					<ColorPalette

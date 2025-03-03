@@ -48,7 +48,7 @@ function BlockSettings({
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-          children: "Text Color"
+          children: "Card Text Color"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
@@ -95,7 +95,7 @@ function BlockSettings({
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","default":"John Doe","selector":".member"},"role":{"type":"string","source":"html","default":"Senior Wealth Advisor","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"},"buttonBackgroundColor":{"type":"string"},"buttonTextColor":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"mm/team-member","version":"0.1.0","title":"team member","category":"design","icon":"businessperson","description":"A block to display team members in your organization","example":{},"supports":{"html":false},"textdomain":"team-member","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["team","member","mm","card"],"attributes":{"memberName":{"type":"string","source":"html","selector":".member"},"role":{"type":"string","source":"html","selector":".role"},"memberPhoto":{"type":"string","default":"https://fakeimg.pl/300x300"},"profileUrl":{"type":"string","default":"#"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"},"buttonBackgroundColor":{"type":"string"},"buttonTextColor":{"type":"string"}}}');
 
 /***/ }),
 

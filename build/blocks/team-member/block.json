@@ -26,13 +26,11 @@
     "memberName": {
       "type": "string",
       "source": "html",
-      "default": "John Doe",
       "selector": ".member"
     },
     "role": {
       "type": "string",
       "source": "html",
-      "default": "Senior Wealth Advisor",
       "selector": ".role"
     },
     "memberPhoto": {
