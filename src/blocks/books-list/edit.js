@@ -41,7 +41,6 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...useBlockProps()}>
 			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
 
-			{/* Example Preview in Editor */}
 			<div className="flip-card">
 				<div className="flip-card-inner">
 					<div className="flip-card-front">
@@ -49,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
 					</div>
 					<div className="flip-card-back" style={{ backgroundColor: attributes.cardColor }}>
 						<h3 className="name" style={{ color: attributes.headingColor }}>Example Book Title</h3>
-						<div className="meta" style={{ color: attributes.textColor }}>Author: John Doe</div>
+						{/*<div className="meta" style={{ color: attributes.textColor }}>Author: John Doe</div>*/}
 						<div className="synopsis" style={{ color: attributes.textColor }}>
 							<p>This is a short book synopsis preview.</p>
 						</div>
@@ -57,7 +56,6 @@ export default function Edit({ attributes, setAttributes }) {
 				</div>
 			</div>
 
-			{/* Server-Side Rendered Books */}
 			<ServerSideRender
 				block={metadata.name}
 				attributes={attributes}

@@ -18,32 +18,30 @@ $query = new WP_Query([
 
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div class="books-grid">
 	<?php while ($query->have_posts()) : $query->the_post();
 		$meta = get_post_meta(get_the_ID());
 		$coverImage = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+		$author = $meta['author'][0] ?? 'Unknown Author';
+		$synopsis = $meta['synopsis'][0] ?? 'No synopsis available.';
 		?>
-		<div class="flip-card">
-			<div class="flip-card-inner">
-				<div class="flip-card-front">
-					<img src="<?= esc_url($coverImage) ?>" alt="<?= esc_attr(get_the_title()) ?>" class="book-cover">
-				</div>
-				<div class="flip-card-back" style="background-color: <?= esc_attr($attributes['cardColor']) ?>;">
-					<h3 class="name" style="color: <?= esc_attr($attributes['headingColor']) ?>;">
-						<?= get_the_title() ?>
-					</h3>
-					<div class="meta" style="color: <?= esc_attr($attributes['textColor']) ?>;">
-						<p><strong>Publisher:</strong> <?= esc_html($meta['publisher'][0] ?? '') ?></p>
-						<p><strong>Published Date:</strong> <?= esc_html($meta['publishedDate'][0] ?? '') ?></p>
-						<p><strong>Genre:</strong> <?= esc_html($meta['genre'][0] ?? '') ?></p>
-						<p><strong>Page Count:</strong> <?= esc_html($meta['pageCount'][0] ?? '') ?></p>
-						<p><strong>Language:</strong> <?= esc_html($meta['language'][0] ?? '') ?></p>
-					</div>
-					<div class="synopsis" style="color: <?= esc_attr($attributes['textColor']) ?>;">
-						<p><?= esc_html($meta['synopsis'][0] ?? '') ?></p>
-					</div>
+		<div class="book-item">
+			<img src="<?= esc_url($coverImage) ?>" alt="<?= esc_attr(get_the_title()) ?>" class="book-cover">
+			<h2><?= get_the_title() ?></h2>
+<!--			<p>By: --><?php //= esc_html($author) ?><!--</p>-->
+			<button class="view-details" data-book-id="<?= get_the_ID() ?>">View Details</button>
+
+
+			<div id="modal-<?= get_the_ID() ?>" class="book-modal">
+				<div class="modal-content">
+					<span class="close" data-book-id="<?= get_the_ID() ?>">&times;</span>
+					<h2><?= get_the_title() ?></h2>
+<!--					<p><strong>Author:</strong> --><?php //= esc_html($author) ?><!--</p>-->
+					<p><strong>Synopsis:</strong> <?= esc_html($synopsis) ?></p>
 				</div>
 			</div>
 		</div>
-	<?php endwhile; wp_reset_postdata(); ?>
+	<?php endwhile; ?>
 </div>
+
+

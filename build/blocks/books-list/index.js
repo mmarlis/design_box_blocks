@@ -179,12 +179,6 @@ function Edit({
             },
             children: "Example Book Title"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "meta",
-            style: {
-              color: attributes.textColor
-            },
-            children: "Author: John Doe"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "synopsis",
             style: {
               color: attributes.textColor
