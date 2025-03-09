@@ -10,3 +10,75 @@
 	color: #fff;
 	padding: 2px;
 }
+.books-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+	padding: 10px;
+}
+
+.flip-card {
+	display: block;
+	background-color: transparent;
+	width: 250px;
+	height: 350px;
+	border: 1px solid #f1f1f1;
+	perspective: 1000px;
+	margin: 10px;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: 8px;
+}
+
+.flip-card-front {
+	background-color: #bbb;
+	color: black;
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+	}
+}
+
+.flip-card-back {
+	background-color: dodgerblue;
+	color: white;
+	transform: rotateY(180deg);
+	padding: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.name {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.meta-field p {
+	margin: 5px 0;
+}
+
+.synopsis {
+	margin-top: 10px;
+	border-top: 2px solid rgba(255, 255, 255, 0.5);
+	padding-top: 10px;
+}

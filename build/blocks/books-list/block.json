@@ -16,5 +16,27 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "cardColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "headingColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "numBooks": {
+      "type": "number",
+      "default": 6
+    },
+    "order": {
+      "type": "string",
+      "default": "ASC"
+    }
+  }
 }
