@@ -28,15 +28,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".view-details").forEach(button => {
     button.addEventListener("click", function () {
-      let bookId = this.getAttribute("data-book-id");
-      document.getElementById("modal-" + bookId).style.display = "block";
+      // Set modal content from button attributes
+      document.getElementById("modal-title").textContent = this.getAttribute("data-title");
+      document.getElementById("modal-cover").src = this.getAttribute("data-cover");
+      document.getElementById("modal-publisher").textContent = this.getAttribute("data-publisher");
+      document.getElementById("modal-published-date").textContent = this.getAttribute("data-published-date");
+      document.getElementById("modal-genre").textContent = this.getAttribute("data-genre");
+      document.getElementById("modal-series").textContent = this.getAttribute("data-series");
+      document.getElementById("modal-page-count").textContent = this.getAttribute("data-page-count");
+      document.getElementById("modal-language").textContent = this.getAttribute("data-language");
+      document.getElementById("modal-price").textContent = this.getAttribute("data-price");
+      document.getElementById("modal-synopsis").textContent = this.getAttribute("data-synopsis");
+
+      // Show modal
+      document.getElementById("book-modal").style.display = "block";
     });
   });
-  document.querySelectorAll(".close").forEach(button => {
-    button.addEventListener("click", function () {
-      let bookId = this.getAttribute("data-book-id");
-      document.getElementById("modal-" + bookId).style.display = "none";
-    });
+
+  // Close modal when clicking the close button
+  document.querySelector(".close").addEventListener("click", function () {
+    document.getElementById("book-modal").style.display = "none";
   });
 });
 

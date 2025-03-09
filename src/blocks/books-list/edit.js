@@ -35,31 +35,46 @@ import { Fragment } from '@wordpress/element';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {Element} Element to render.
+ *
  */
+
+// placeholders To see how it looks in the editor
+const mockBooks = [
+	{
+		id: 1,
+		title: "A Little Life",
+		cover: "https://via.placeholder.com/150",
+		synopsis: "A deeply moving novel about friendship and trauma."
+	},
+	{
+		id: 2,
+		title: "Book Lovers",
+		cover: "https://via.placeholder.com/150",
+		synopsis: "A witty, heartfelt romance about bookish people."
+	}
+];
+
+
 export default function Edit({ attributes, setAttributes }) {
 	return (
 		<div {...useBlockProps()}>
 			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
 
-			<div className="flip-card">
-				<div className="flip-card-inner">
-					<div className="flip-card-front">
-						<img src="https://via.placeholder.com/150" alt="Book Cover"/>
+			{/* Mock Preview in Editor */}
+			<div className="books-grid">
+				{mockBooks.map((book) => (
+					<div key={book.id} className="book-item">
+						<img src={book.cover} alt={book.title} className="book-cover"/>
+						<h2>{book.title}</h2>
+						<button className="view-details">View Details</button>
 					</div>
-					<div className="flip-card-back" style={{ backgroundColor: attributes.cardColor }}>
-						<h3 className="name" style={{ color: attributes.headingColor }}>Example Book Title</h3>
-						{/*<div className="meta" style={{ color: attributes.textColor }}>Author: John Doe</div>*/}
-						<div className="synopsis" style={{ color: attributes.textColor }}>
-							<p>This is a short book synopsis preview.</p>
-						</div>
-					</div>
-				</div>
+				))}
 			</div>
 
-			<ServerSideRender
-				block={metadata.name}
-				attributes={attributes}
-			/>
+			{/* Server-side rendering for real content */}
+			<div className="books-grid">
+				<ServerSideRender block={metadata.name} attributes={attributes} />
+			</div>
 		</div>
 	);
 }

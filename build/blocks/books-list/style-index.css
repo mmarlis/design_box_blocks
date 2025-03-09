@@ -66,20 +66,54 @@
 .book-modal {
   display: none;
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%; /* Adjusted for a horizontal layout */
+  max-width: 900px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow: hidden;
 }
 
 .modal-content {
-  background: white;
-  width: 50%;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  max-height: 90vh; /* Ensures the modal does not take up the full screen */
+  overflow: auto; /* Enables scrolling */
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.modal-left {
+  flex: 1;
+}
+
+.modal-right {
+  flex: 2;
+  overflow-y: auto;
+  max-height: 70vh; /* Allows scrolling if content is too long */
+  padding-right: 10px;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 5px;
+}
+
+.book-synopsis {
+  margin-top: 10px;
+  text-align: left;
 }
 
 .close {
@@ -88,6 +122,24 @@
   right: 20px;
   font-size: 24px;
   cursor: pointer;
+  color: #333;
+}
+
+.book-item button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #0073aa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.book-item button:hover {
+  background-color: #005f8b;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

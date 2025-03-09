@@ -146,8 +146,22 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {Element} Element to render.
+ *
  */
 
+// placeholders To see how it looks in the editor
+
+const mockBooks = [{
+  id: 1,
+  title: "A Little Life",
+  cover: "https://via.placeholder.com/150",
+  synopsis: "A deeply moving novel about friendship and trauma."
+}, {
+  id: 2,
+  title: "Book Lovers",
+  cover: "https://via.placeholder.com/150",
+  synopsis: "A witty, heartfelt romance about bookish people."
+}];
 function Edit({
   attributes,
   setAttributes
@@ -158,40 +172,26 @@ function Edit({
       attributes: attributes,
       setAttributes: setAttributes
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-      className: "flip-card",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "flip-card-inner",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "flip-card-front",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-            src: "https://via.placeholder.com/150",
-            alt: "Book Cover"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "flip-card-back",
-          style: {
-            backgroundColor: attributes.cardColor
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
-            className: "name",
-            style: {
-              color: attributes.headingColor
-            },
-            children: "Example Book Title"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "synopsis",
-            style: {
-              color: attributes.textColor
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-              children: "This is a short book synopsis preview."
-            })
-          })]
+      className: "books-grid",
+      children: mockBooks.map(book => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "book-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+          src: book.cover,
+          alt: book.title,
+          className: "book-cover"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+          children: book.title
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+          className: "view-details",
+          children: "View Details"
         })]
+      }, book.id))
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "books-grid",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_3___default()), {
+        block: _block_json__WEBPACK_IMPORTED_MODULE_5__.name,
+        attributes: attributes
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_3___default()), {
-      block: _block_json__WEBPACK_IMPORTED_MODULE_5__.name,
-      attributes: attributes
     })]
   });
 }
