@@ -1,14 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect,useState} from "react";
 import BookList from "./BookList";
 
 export default function BlockApp(props) {
 	let [keyword, setKeyword] = useState('');
+	let [books, setBooks] = useState([]); //store the books
 
-	fetch('wp-json/wp/v2/books')
-		.then(response => response.json())
-		.then(data => {
-			console.log(data);
-		})
+	useEffect(() => {
+		fetch('/wp-json/wp/v2/book')
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				setBooks(data);
+			})
+	}, []);
+
 
 
 	return (
@@ -22,7 +27,7 @@ export default function BlockApp(props) {
 					{keyword}
 				</label>
 			</div>
-			<BookList posts={[1, 2, 3]}/>
+			<BookList posts={books}/>
 		</div>
 
 	)
