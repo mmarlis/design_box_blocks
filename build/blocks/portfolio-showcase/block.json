@@ -16,5 +16,15 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "headingColor": {
+      "type": "string",
+      "default": "#333"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#666"
+    }
+  }
 }

@@ -1,20 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "mm/portfolio-showcase",
+	"name": "mm/book-finder",
 	"version": "0.1.0",
-	"title": "Portfolio Showcase",
+	"title": "Book Finder",
 	"category": "design",
-	"icon": "format-gallery",
-	"description": "Display different portfolio pieces",
+	"icon": "book",
+	"description": "Book directory with search features",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "portfolio-showcase",
+	"textdomain": "book-finder",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"render": "file:./render.php",
 	"viewScript": "file:./view.js"
 }

@@ -31,8 +31,8 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Portfolio Showcase – hello from the editor!', 'portfolio-showcase' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			Book directory will go here
+		</div>
 	);
 }
