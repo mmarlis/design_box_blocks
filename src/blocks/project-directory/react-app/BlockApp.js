@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ProjectList from "./ProjectList";
+import getProject from "./api/project";
 
 export default function BlockApp(props) {
 	let [keyword, setKeyword] = useState('');
@@ -7,15 +8,7 @@ export default function BlockApp(props) {
 	//store the filtered projects
 	let [filteredProjects, setFilteredProjects] = useState([]);
 
-	useEffect(() => {
-		fetch('/wp-json/wp/v2/project')
-			.then(response => response.json())
-			.then(data => {
-				console.log(data);
-				setProjects(data);
-				setFilteredProjects(data); // to show all projects when the page loads
-			})
-	}, []);
+	useEffect(() => getProject(setProjects, setFilteredProjects), []);
 
 
 	function filterProjects(keyword) {
