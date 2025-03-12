@@ -56,7 +56,6 @@ $query = new WP_Query([
 	<?php endwhile; ?>
 </div>
 
-<!-- Modal (Hidden by Default) -->
 <div id="book-modal" class="book-modal">
 	<div class="modal-content">
 		<span class="close">&times;</span>

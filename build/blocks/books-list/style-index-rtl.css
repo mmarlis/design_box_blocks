@@ -83,8 +83,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 90vh; /* Ensures the modal does not take up the full screen */
-  overflow: auto; /* Enables scrolling */
+  max-height: 90vh;
+  overflow: auto;
 }
 
 .modal-body {
@@ -101,7 +101,7 @@
 .modal-right {
   flex: 2;
   overflow-y: auto;
-  max-height: 70vh; /* Allows scrolling if content is too long */
+  max-height: 70vh;
   padding-left: 10px;
 }
 

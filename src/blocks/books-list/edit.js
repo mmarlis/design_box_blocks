@@ -60,7 +60,6 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...useBlockProps()}>
 			<BlockSettings attributes={attributes} setAttributes={setAttributes} />
 
-			{/* Mock Preview in Editor */}
 			<div className="books-grid">
 				{mockBooks.map((book) => (
 					<div key={book.id} className="book-item">
@@ -71,7 +70,6 @@ export default function Edit({ attributes, setAttributes }) {
 				))}
 			</div>
 
-			{/* Server-side rendering for real content */}
 			<div className="books-grid">
 				<ServerSideRender block={metadata.name} attributes={attributes} />
 			</div>
