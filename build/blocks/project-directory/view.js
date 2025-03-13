@@ -47,39 +47,150 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ProjectList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProjectList */ "./src/blocks/project-directory/react-app/ProjectList.js");
-/* harmony import */ var _api_project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api/project */ "./src/blocks/project-directory/react-app/api/project.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchBar */ "./src/blocks/project-directory/react-app/SearchBar.js");
+/* harmony import */ var _FilterDropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FilterDropdown */ "./src/blocks/project-directory/react-app/FilterDropdown.js");
+/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pagination */ "./src/blocks/project-directory/react-app/Pagination.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
-function BlockApp(props) {
-  let [keyword, setKeyword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  let [projects, setProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]); //store the books
-  //store the filtered projects
-  let [filteredProjects, setFilteredProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => (0,_api_project__WEBPACK_IMPORTED_MODULE_2__["default"])(setProjects, setFilteredProjects), []);
-  function filterProjects(keyword) {
-    // If I had a ton of records, I would do another ajax call here
 
-    const results = projects.filter(project => {
-      return project.title.rendered.toLowerCase().includes(keyword.toLowerCase());
+
+function BlockApp() {
+  const [keyword, setKeyword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [projects, setProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [filteredProjects, setFilteredProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [technology, setTechnology] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  // const [sortOrder, setSortOrder] = useState("asc");
+  const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [currentPage, setCurrentPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+  const projectsPerPage = 6;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setLoading(true);
+    fetch(`/wp-json/wp/v2/project?_embed&page=${currentPage}&per_page=${projectsPerPage}`).then(response => response.json()).then(data => {
+      console.log("Fetched Data:", data);
+      setProjects(data);
+      setFilteredProjects(data);
+      setLoading(false);
     });
+  }, [currentPage]);
+  const uniqueTechnologies = react__WEBPACK_IMPORTED_MODULE_0___default().useMemo(() => {
+    const techs = projects.reduce((acc, project) => {
+      if (Array.isArray(project.acf?.project_technology)) {
+        acc.push(...project.acf.project_technology);
+      }
+      return acc;
+    }, []);
+    return ["All", ...new Set(techs)];
+  }, [projects]);
+  function filterProjects(keyword) {
     setKeyword(keyword);
+    const results = projects.filter(project => project.title.rendered.toLowerCase().includes(keyword.toLowerCase()));
     setFilteredProjects(results);
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-        children: ["Filter:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          value: keyword,
-          onChange: e => filterProjects(e.target.value)
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ProjectList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  function filterByTechnology(selectedTechnology) {
+    setTechnology(selectedTechnology);
+    if (selectedTechnology === "All") {
+      setFilteredProjects(projects);
+    } else {
+      const filtered = projects.filter(project => {
+        const projectTechs = project.acf?.project_technology || [];
+        return projectTechs.includes(selectedTechnology);
+      });
+      setFilteredProjects(filtered);
+    }
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "project-directory",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      value: keyword,
+      setValue: filterProjects
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_FilterDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      value: technology,
+      setValue: filterByTechnology,
+      technologies: uniqueTechnologies
+    }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+      children: "Loading..."
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ProjectList__WEBPACK_IMPORTED_MODULE_1__["default"], {
       posts: filteredProjects
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pagination__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      currentPage: currentPage,
+      totalPages: 5,
+      setPage: setCurrentPage
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/blocks/project-directory/react-app/FilterDropdown.js":
+/*!******************************************************************!*\
+  !*** ./src/blocks/project-directory/react-app/FilterDropdown.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FilterDropdown)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function FilterDropdown({
+  value,
+  setValue,
+  technologies
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
+    value: value,
+    onChange: e => setValue(e.target.value),
+    children: technologies.map((tech, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: tech,
+      children: tech
+    }, index))
+  });
+}
+
+/***/ }),
+
+/***/ "./src/blocks/project-directory/react-app/Pagination.js":
+/*!**************************************************************!*\
+  !*** ./src/blocks/project-directory/react-app/Pagination.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Pagination)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function Pagination({
+  currentPage,
+  totalPages,
+  setPage
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "pagination",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      disabled: currentPage === 1,
+      onClick: () => setPage(currentPage - 1),
+      children: "Previous"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+      children: ["Page ", currentPage, " of ", totalPages]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      disabled: currentPage === totalPages,
+      onClick: () => setPage(currentPage + 1),
+      children: "Next"
     })]
   });
 }
@@ -107,7 +218,8 @@ __webpack_require__.r(__webpack_exports__);
 function BookList({
   posts
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "project-grid",
     children: posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ProjectListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
       post: post
     }, post.id))
@@ -135,30 +247,52 @@ __webpack_require__.r(__webpack_exports__);
 function ProjectListItem({
   post
 }) {
-  const imageId = post.acf.project_image;
-  const imageUrl = post.acf.project_image_url;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-    children: post.title.rendered
+  const imageUrl = post.acf?.project_image ? post.acf.project_image : post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://picsum.photos/200/300";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "project-card",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      src: imageUrl,
+      alt: post.title.rendered || "No Title",
+      className: "project-image"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+      children: post.title.rendered
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: post.acf?.project_description || "No description available."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+        children: "Technology Used:"
+      }), Array.isArray(post.acf?.project_technology) ? post.acf.project_technology.join(", ") : post.acf?.project_technology || "Not specified"]
+    })]
   });
 }
 
 /***/ }),
 
-/***/ "./src/blocks/project-directory/react-app/api/project.js":
-/*!***************************************************************!*\
-  !*** ./src/blocks/project-directory/react-app/api/project.js ***!
-  \***************************************************************/
+/***/ "./src/blocks/project-directory/react-app/SearchBar.js":
+/*!*************************************************************!*\
+  !*** ./src/blocks/project-directory/react-app/SearchBar.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getProject)
+/* harmony export */   "default": () => (/* binding */ SearchBar)
 /* harmony export */ });
-function getProject(setProjects, setFilteredProjects) {
-  fetch('/wp-json/wp/v2/project').then(response => response.json()).then(data => {
-    console.log(data);
-    setProjects(data);
-    setFilteredProjects(data); // to show all projects when the page loads
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function SearchBar({
+  value,
+  setValue
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+    type: "text",
+    placeholder: "Search projects...",
+    value: value,
+    onChange: e => setValue(e.target.value)
   });
 }
 

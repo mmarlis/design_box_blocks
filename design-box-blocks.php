@@ -38,4 +38,28 @@ function mm_design_box_blocks_block_init() {
 }
 add_action( 'init', 'mm_design_box_blocks_block_init' );
 
+
+add_action('rest_api_init', 'register_rest_images' );
+
+function register_rest_images() {
+	register_rest_field(
+		array('project'), // Change 'post' to 'project' (your CPT)
+		'fimg_url',
+		array(
+			'get_callback'    => 'get_rest_featured_image',
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+}
+
+function get_rest_featured_image( $object, $field_name, $request ) {
+	if( $object['featured_media'] ){
+		$img = wp_get_attachment_image_src( $object['featured_media'], 'full' );
+		return $img ? $img[0] : false;
+	}
+	return false;
+}
+
+
 include __DIR__ . '/filters.php';

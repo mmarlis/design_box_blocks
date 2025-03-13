@@ -13,4 +13,87 @@
   padding: 2px;
 }
 
+.project-directory {
+  text-align: center;
+  background-color: #1b5575;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #005bb5;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 /*# sourceMappingURL=style-index.css.map*/

@@ -4,11 +4,11 @@ import ProjectListItem from "./ProjectListItem";
 export default function BookList({posts}) {
 
 	return (
-		<ul>
+		<div className="project-grid">
 			{posts.map(post => (
 				<ProjectListItem post={post} key={post.id} />
 			))}
-		</ul>
+		</div>
 
 	)
 }

@@ -1,10 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 
-export default function ProjectListItem({post}) {
-const imageId = post.acf.project_image;
-const imageUrl = post.acf.project_image_url;
+export default function ProjectListItem({ post }) {
+	const imageUrl = post.acf?.project_image
+		? post.acf.project_image
+		: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://picsum.photos/200/300";
+
 	return (
-		<li>{post.title.rendered}</li>
-
-	)
+		<div className="project-card">
+			<img src={imageUrl} alt={post.title.rendered || "No Title"} className="project-image" />
+			<h3>{post.title.rendered}</h3>
+			<p>{post.acf?.project_description || "No description available."}</p>
+			<p>
+				<strong>Technology Used:</strong>
+				{Array.isArray(post.acf?.project_technology)
+					? post.acf.project_technology.join(", ")
+					: post.acf?.project_technology || "Not specified"}
+			</p>
+		</div>
+	);
 }
