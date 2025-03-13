@@ -63,19 +63,26 @@ function BlockApp() {
   const [projects, setProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [filteredProjects, setFilteredProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [technology, setTechnology] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
-  // const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
   const [currentPage, setCurrentPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
-  const projectsPerPage = 6;
+  const [totalPages, setTotalPages] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+  const projectsPerPage = 2;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     setLoading(true);
-    fetch(`/wp-json/wp/v2/project?_embed&page=${currentPage}&per_page=${projectsPerPage}`).then(response => response.json()).then(data => {
+    fetch(`/wp-json/wp/v2/project?_embed&page=${currentPage}&per_page=${projectsPerPage}`).then(response => {
+      const total = response.headers.get("X-WP-Total");
+      const totalPages = response.headers.get("X-WP-TotalPages");
+      console.log("Total Projects:", total, "Total Pages:", totalPages);
+      setTotalPages(Number(totalPages));
+      return response.json();
+    }).then(data => {
       console.log("Fetched Data:", data);
       setProjects(data);
       setFilteredProjects(data);
       setLoading(false);
     });
-  }, [currentPage]);
+  }, [currentPage, projectsPerPage]);
+  const totalPagesCalculated = totalPages;
   const uniqueTechnologies = react__WEBPACK_IMPORTED_MODULE_0___default().useMemo(() => {
     const techs = projects.reduce((acc, project) => {
       if (Array.isArray(project.acf?.project_technology)) {
@@ -117,7 +124,7 @@ function BlockApp() {
       posts: filteredProjects
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pagination__WEBPACK_IMPORTED_MODULE_4__["default"], {
       currentPage: currentPage,
-      totalPages: 5,
+      totalPages: totalPagesCalculated,
       setPage: setCurrentPage
     })]
   });
@@ -179,6 +186,7 @@ function Pagination({
   totalPages,
   setPage
 }) {
+  if (totalPages <= 1) return null;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "pagination",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
@@ -188,7 +196,7 @@ function Pagination({
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
       children: ["Page ", currentPage, " of ", totalPages]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-      disabled: currentPage === totalPages,
+      disabled: currentPage >= totalPages,
       onClick: () => setPage(currentPage + 1),
       children: "Next"
     })]
@@ -260,7 +268,7 @@ function ProjectListItem({
       children: post.acf?.project_description || "No description available."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
-        children: "Technology Used:"
+        children: "Technologies Used:"
       }), Array.isArray(post.acf?.project_technology) ? post.acf.project_technology.join(", ") : post.acf?.project_technology || "Not specified"]
     })]
   });

@@ -11,7 +11,7 @@ export default function ProjectListItem({ post }) {
 			<h3>{post.title.rendered}</h3>
 			<p>{post.acf?.project_description || "No description available."}</p>
 			<p>
-				<strong>Technology Used:</strong>
+				<strong>Technologies Used:</strong>
 				{Array.isArray(post.acf?.project_technology)
 					? post.acf.project_technology.join(", ")
 					: post.acf?.project_technology || "Not specified"}

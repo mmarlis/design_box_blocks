@@ -10,23 +10,31 @@ export default function BlockApp() {
 	const [projects, setProjects] = useState([]);
 	const [filteredProjects, setFilteredProjects] = useState([]);
 	const [technology, setTechnology] = useState("");
-	// const [sortOrder, setSortOrder] = useState("asc");
 	const [loading, setLoading] = useState(true);
 	const [currentPage, setCurrentPage] = useState(1);
-	const projectsPerPage = 6;
+	const [totalPages, setTotalPages] = useState(1);
+	const projectsPerPage = 2;
 
 	useEffect(() => {
 		setLoading(true);
 		fetch(`/wp-json/wp/v2/project?_embed&page=${currentPage}&per_page=${projectsPerPage}`)
-			.then(response => response.json())
+			.then(response => {
+				const total = response.headers.get("X-WP-Total");
+				const totalPages = response.headers.get("X-WP-TotalPages");
+				console.log("Total Projects:", total, "Total Pages:", totalPages);
+				setTotalPages(Number(totalPages));
+				return response.json();
+			})
 			.then(data => {
 				console.log("Fetched Data:", data);
 				setProjects(data);
 				setFilteredProjects(data);
 				setLoading(false);
 			});
-	}, [currentPage]);
+	}, [currentPage, projectsPerPage]);
 
+
+	const totalPagesCalculated = totalPages;
 
 	const uniqueTechnologies = React.useMemo(() => {
 		const techs = projects.reduce((acc, project) => {
@@ -76,7 +84,7 @@ export default function BlockApp() {
 
 			<Pagination
 				currentPage={currentPage}
-				totalPages={5}
+				totalPages={totalPagesCalculated}
 				setPage={setCurrentPage}
 			/>
 		</div>

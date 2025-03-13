@@ -8,14 +8,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-mm-project-directory {
-  background-color: #21759b;
+  background-color: #33658a;
   color: #fff;
   padding: 2px;
 }
 
 .project-directory {
   text-align: center;
-  background-color: #1b5575;
+  background-color: #33658a;
   padding: 20px;
   border-radius: 10px;
 }
@@ -61,7 +61,7 @@ input, select {
 
 .project-card p {
   font-size: 14px;
-  color: #ddd;
+  color: #433f3f;
 }
 
 .project-card img {
@@ -77,7 +77,7 @@ input, select {
 }
 
 .pagination button {
-  background-color: #0073e6;
+  background-color: #f6ae2d;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -88,7 +88,8 @@ input, select {
 }
 
 .pagination button:hover {
-  background-color: #005bb5;
+  background-color: #af7c16;
+  border: none;
 }
 
 .pagination button:disabled {
