@@ -7,6 +7,7 @@ import Pagination from "./Pagination";
 
 export default function BlockApp() {
 	const [keyword, setKeyword] = useState('');
+	const [allProjects, setAllProjects] = useState([]);
 	const [projects, setProjects] = useState([]);
 	const [filteredProjects, setFilteredProjects] = useState([]);
 	const [technology, setTechnology] = useState("");
@@ -14,6 +15,7 @@ export default function BlockApp() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
 	const projectsPerPage = 2;
+
 
 	useEffect(() => {
 		setLoading(true);
@@ -34,6 +36,8 @@ export default function BlockApp() {
 	}, [currentPage, projectsPerPage]);
 
 
+
+
 	const totalPagesCalculated = totalPages;
 
 	const uniqueTechnologies = React.useMemo(() => {
@@ -49,29 +53,38 @@ export default function BlockApp() {
 
 
 
+	function applyFilters(projects, keyword, technology) {
+		let filtered = projects;
+
+		if (keyword.trim() !== "") {
+			filtered = filtered.filter(project =>
+				project.title.rendered.toLowerCase().includes(keyword.toLowerCase())
+			);
+			console.log(filtered);
+		}
+
+		if (technology !== "All" && technology) {
+			filtered = filtered.filter(project => {
+				const projectTechs = project.acf?.project_technology || [];
+				return projectTechs.includes(technology);
+			});
+		}
+
+		return filtered;
+	}
+
+
 	function filterProjects(keyword) {
 		setKeyword(keyword);
-		const results = projects.filter(project =>
-			project.title.rendered.toLowerCase().includes(keyword.toLowerCase())
-		);
-		setFilteredProjects(results);
+		setFilteredProjects(applyFilters(projects, keyword, technology));
 	}
+
 
 	function filterByTechnology(selectedTechnology) {
 		setTechnology(selectedTechnology);
-
-		if (selectedTechnology === "All") {
-			setFilteredProjects(projects);
-		} else {
-			const filtered = projects.filter(project => {
-				const projectTechs = project.acf?.project_technology || [];
-
-				return projectTechs.includes(selectedTechnology);
-			});
-
-			setFilteredProjects(filtered);
-		}
+		setFilteredProjects(applyFilters(projects, keyword, selectedTechnology));
 	}
+
 
 
 

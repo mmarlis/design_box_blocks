@@ -60,6 +60,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function BlockApp() {
   const [keyword, setKeyword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [allProjects, setAllProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [projects, setProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [filteredProjects, setFilteredProjects] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [technology, setTechnology] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
@@ -92,22 +93,27 @@ function BlockApp() {
     }, []);
     return ["All", ...new Set(techs)];
   }, [projects]);
+  function applyFilters(projects, keyword, technology) {
+    let filtered = projects;
+    if (keyword.trim() !== "") {
+      filtered = filtered.filter(project => project.title.rendered.toLowerCase().includes(keyword.toLowerCase()));
+      console.log(filtered);
+    }
+    if (technology !== "All" && technology) {
+      filtered = filtered.filter(project => {
+        const projectTechs = project.acf?.project_technology || [];
+        return projectTechs.includes(technology);
+      });
+    }
+    return filtered;
+  }
   function filterProjects(keyword) {
     setKeyword(keyword);
-    const results = projects.filter(project => project.title.rendered.toLowerCase().includes(keyword.toLowerCase()));
-    setFilteredProjects(results);
+    setFilteredProjects(applyFilters(projects, keyword, technology));
   }
   function filterByTechnology(selectedTechnology) {
     setTechnology(selectedTechnology);
-    if (selectedTechnology === "All") {
-      setFilteredProjects(projects);
-    } else {
-      const filtered = projects.filter(project => {
-        const projectTechs = project.acf?.project_technology || [];
-        return projectTechs.includes(selectedTechnology);
-      });
-      setFilteredProjects(filtered);
-    }
+    setFilteredProjects(applyFilters(projects, keyword, selectedTechnology));
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "project-directory",
@@ -255,7 +261,19 @@ __webpack_require__.r(__webpack_exports__);
 function ProjectListItem({
   post
 }) {
-  const imageUrl = post.acf?.project_image ? post.acf.project_image : post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://picsum.photos/200/300";
+  // const imageUrl = post.acf?.project_image
+  // 	? post.acf.project_image
+  // 	: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://picsum.photos/200/300";
+  const [imageUrl, setImageUrl] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setImageUrl(post.acf?.project_image || post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://picsum.photos/200/300");
+    fetch(`/wp-json/wp/v2/media/${post.acf?.project_image}`).then(response => response.json()).then(data => {
+      let imgUrl = data.media_details.sizes.thumbnail.source_url;
+      if (imgUrl) {
+        setImageUrl(imgUrl);
+      }
+    });
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "project-card",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
